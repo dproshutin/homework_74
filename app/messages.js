@@ -24,9 +24,6 @@ router.get("/", (req, res) => {
         }
         let messages = files.slice(-NUMBER_OF_LAST_MESSAGES).map(file => {
             let item = fs.readFileSync("messages/" + file);
-            // let item = fs.readFile("messages/" + file, (err, data) => {
-            //     return data;
-            // });
             return JSON.parse(String(item));
         });
         return res.send(messages);
